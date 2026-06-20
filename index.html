@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hurtle Interactives — Get Your Business Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:    #0D0D0D;
+  --black2:   #141414;
+  --black3:   #1A1A1A;
+  --white:    #FFFFFF;
+  --off:      #F5F5F2;
+  --muted:    rgba(255,255,255,0.42);
+  --muted2:   rgba(255,255,255,0.18);
+  --green:    #2B6645;
+  --green2:   #3A8A5C;
+  --green-lt: rgba(43,102,69,0.12);
+  --green-bd: rgba(43,102,69,0.3);
+  --border:   rgba(255,255,255,0.08);
+  --border2:  rgba(255,255,255,0.05);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  background: rgba(13,13,13,0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  width: 30px; height: 30px;
+  background: url('https://hurtleinteractives.netlify.app/assets/img/logo.png') center/contain no-repeat;
+  filter: brightness(10);
+  opacity: 0.9;
+}
+
+.logo-text {
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 0.14em;
+  color: var(--white);
+}
+
+.nav-center {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-center a {
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+  font-weight: 400;
+}
+
+.nav-center a:hover { color: var(--white); }
+
+.nav-btn {
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.nav-btn:hover { background: var(--green2); }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.hamburger span { width: 22px; height: 1.5px; background: var(--white); display: block; }
+
+/* ── HERO ── */
+#home {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 9rem 5% 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle grid texture */
+#home::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+
+/* Green glow orb */
+#home::after {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(43,102,69,0.18) 0%, transparent 70%);
+  top: 50%; right: 5%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.hero-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--green2);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 2.25rem;
+}
+
+.hero-tag::before {
+  content: '';
+  width: 20px; height: 1px;
+  background: var(--green);
+  display: block;
+}
+
+.hero-headline {
+  font-size: clamp(2.8rem, 6.5vw, 5.8rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  max-width: 820px;
+  margin-bottom: 2rem;
+}
+
+.hero-headline .hl {
+  display: block;
+  color: rgba(255,255,255,0.22);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 0.62em;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.3rem;
+}
+
+.hero-divider {
+  width: 100%;
+  max-width: 820px;
+  height: 1px;
+  background: var(--border);
+  margin: 2rem 0;
+}
+
+.hero-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  max-width: 820px;
+  align-items: end;
+}
+
+.hero-desc {
+  grid-column: 1 / 3;
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.hero-cta-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.btn-main {
+  width: 100%;
+  background: var(--white);
+  color: var(--black);
+  padding: 0.82rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: background 0.2s, transform 0.15s;
+  display: block;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.btn-main:hover { background: var(--off); transform: translateY(-1px); }
+
+.btn-sec {
+  width: 100%;
+  border: 1px solid var(--border);
+  color: rgba(255,255,255,0.65);
+  padding: 0.82rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, color 0.2s;
+  display: block;
+  text-align: center;
+}
+
+.btn-sec:hover { border-color: rgba(255,255,255,0.25); color: var(--white); }
+
+/* Scroll ticker */
+.ticker-wrap {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 0.85rem 0;
+  margin-top: 5rem;
+  background: var(--black2);
+}
+
+.ticker-track {
+  display: flex;
+  gap: 3rem;
+  animation: ticker 22s linear infinite;
+  white-space: nowrap;
+  width: max-content;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.ticker-item {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.ticker-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--green);
+  display: inline-block;
+}
+
+/* ── PROBLEM / ABOUT ── */
+#about {
+  padding: 7rem 5%;
+  background: var(--black2);
+  border-top: 1px solid var(--border2);
+}
+
+.about-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 7rem;
+  align-items: start;
+}
+
+.about-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green2);
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.about-wrap h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.about-wrap h2 em {
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+}
+
+.about-right-content {
+  padding-top: 2.4rem;
+}
+
+.about-right-content p {
+  color: var(--muted);
+  font-size: 0.97rem;
+  line-height: 1.85;
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+}
+
+/* founder block */
+.founder-strip {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.founder-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.f-av {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--black3);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.05em;
+}
+
+.f-name {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.f-role {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.f-sep {
+  width: 1px; height: 36px;
+  background: var(--border);
+  align-self: center;
+  margin: 0 0.25rem;
+}
+
+/* origin badge */
+.origin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-lt);
+  border: 1px solid var(--green-bd);
+  color: var(--green2);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+/* ── SERVICES ── */
+#services {
+  padding: 7rem 5%;
+  background: var(--black);
+  border-top: 1px solid var(--border2);
+}
+
+.services-wrap { max-width: 1100px; margin: 0 auto; }
+
+.services-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: end;
+  margin-bottom: 4rem;
+}
+
+.services-head h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.services-head p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+/* 4 service cards in a 2x2 — clean, detailed, no frills */
+.service-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.s-card {
+  background: var(--black2);
+  padding: 2.5rem;
+  position: relative;
+  transition: background 0.25s;
+}
+
+.s-card:hover { background: var(--black3); }
+
+.s-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--green2);
+  letter-spacing: 0.12em;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.s-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.75rem;
+  color: var(--white);
+}
+
+.s-card p {
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
+
+/* What's included checklist */
+.s-includes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.s-check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.s-check::before {
+  content: '';
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--green-bd);
+  background: var(--green-lt);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath d='M1.5 4L3 5.5L6.5 2' stroke='%232B6645' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ── PORTFOLIO ── */
+#portfolio {
+  padding: 7rem 5%;
+  background: var(--black2);
+  border-top: 1px solid var(--border2);
+}
+
+.portfolio-wrap { max-width: 1100px; margin: 0 auto; }
+
+.portfolio-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.portfolio-head h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.portfolio-head p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.7;
+  max-width: 260px;
+  text-align: right;
+}
+
+.p-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.p-card {
+  background: var(--black3);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.p-card:hover {
+  border-color: rgba(43,102,69,0.35);
+  transform: translateY(-3px);
+}
+
+.p-img-wrap {
+  height: 200px;
+  overflow: hidden;
+  background: var(--black);
+}
+
+.p-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.p-card:hover .p-img-wrap img { transform: scale(1.05); }
+
+.p-info { padding: 1.5rem 1.75rem; }
+
+.p-category {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green2);
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.p-info h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+}
+
+.p-info p {
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.p-soon {
+  grid-column: 1 / -1;
+  border: 1px dashed rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 2.25rem;
+  text-align: center;
+  color: rgba(255,255,255,0.2);
+  font-size: 0.82rem;
+}
+
+.p-soon strong {
+  display: block;
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+/* ── WHY US — compact social proof strip ── */
+#why {
+  background: var(--green);
+  padding: 4.5rem 5%;
+}
+
+.why-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.why-item {
+  text-align: center;
+  padding: 1rem;
+}
+
+.why-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--white);
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.why-label {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+.why-sep {
+  width: 1px;
+  height: 56px;
+  background: rgba(255,255,255,0.15);
+  margin: 0 auto;
+}
+
+/* ── CONTACT ── */
+#contact {
+  padding: 7rem 5%;
+  background: var(--black);
+  border-top: 1px solid var(--border2);
+}
+
+.contact-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.contact-left h2 {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.contact-left > p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 3rem;
+}
+
+.c-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.c-row {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border2);
+  align-items: center;
+}
+
+.c-row:first-child { border-top: 1px solid var(--border2); }
+
+.c-ico {
+  font-size: 1rem;
+  opacity: 0.6;
+  line-height: 1;
+}
+
+.c-text-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.18rem;
+}
+
+.c-text-val {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+}
+
+.c-text-val a {
+  color: var(--green2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.c-text-val a:hover { color: #4CAF82; }
+
+/* Form */
+.contact-form {
+  background: var(--black2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.25rem;
+}
+
+.cf-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 1.75rem;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.cf-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.f-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.f-grp { margin-bottom: 0.75rem; }
+
+.f-label {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  margin-bottom: 0.4rem;
+}
+
+.f-input {
+  width: 100%;
+  background: var(--black3);
+  border: 1px solid var(--border);
+  color: var(--white);
+  padding: 0.7rem 0.9rem;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+
+.f-input::placeholder { color: rgba(255,255,255,0.18); }
+.f-input:focus { border-color: var(--green); }
+
+.f-ta { resize: vertical; min-height: 100px; }
+
+.f-select option { background: var(--black3); }
+
+.f-submit {
+  width: 100%;
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  padding: 0.88rem 1.5rem;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, transform 0.15s;
+  margin-top: 0.25rem;
+}
+
+.f-submit:hover { background: var(--green2); transform: translateY(-1px); }
+
+/* ── FOOTER ── */
+footer {
+  background: #080808;
+  border-top: 1px solid var(--border2);
+  padding: 2rem 5%;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.footer-icon {
+  width: 22px; height: 22px;
+  background: url('https://hurtleinteractives.netlify.app/assets/img/logo.png') center/contain no-repeat;
+  filter: brightness(10);
+  opacity: 0.35;
+}
+
+.footer-brand-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.3);
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.18);
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+.footer-nav a {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.footer-nav a:hover { color: rgba(255,255,255,0.6); }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 6%; }
+  .nav-center { display: none; }
+  .nav-center.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 64px; left: 0; right: 0;
+    background: var(--black);
+    padding: 2rem 6%;
+    border-bottom: 1px solid var(--border);
+    gap: 1.25rem;
+  }
+  .hamburger { display: flex; }
+
+  #home, #about, #services, #portfolio, #contact { padding: 5rem 6%; }
+  #why { padding: 3rem 6%; }
+
+  .hero-headline { font-size: clamp(2.5rem, 12vw, 4rem); }
+  .hero-bottom { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero-desc { grid-column: 1; }
+  .hero-cta-col { flex-direction: row; }
+
+  .about-wrap { grid-template-columns: 1fr; gap: 3rem; }
+
+  .services-head { grid-template-columns: 1fr; gap: 1.5rem; }
+  .service-cards { grid-template-columns: 1fr; }
+
+  .p-grid { grid-template-columns: 1fr; }
+  .portfolio-head p { text-align: left; }
+
+  .why-wrap { grid-template-columns: 1fr 1fr; }
+  .why-sep { display: none; }
+
+  .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
+
+  .f-row { grid-template-columns: 1fr; }
+  .hero-cta-col { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="logo">
+    <div class="logo-icon"></div>
+    <span class="logo-text">HURTLE</span>
+  </a>
+  <ul class="nav-center" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-btn">Get Started</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+  <div class="hero-wrap">
+    <div class="hero-tag">Web Design & Digital Marketing · Manila & Singapore</div>
+    <h1 class="hero-headline">
+      <span class="hl">Your business is great. Your online presence should be too.</span>
+      We get businesses<br>found, trusted,<br>and chosen online.
+    </h1>
+    <div class="hero-divider"></div>
+    <div class="hero-bottom">
+      <p class="hero-desc">
+        Hurtle builds the websites, runs the ads, and manages the social media so your customers find you before they find your competitors. Fast, focused, and built for real results.
+      </p>
+      <div class="hero-cta-col">
+        <a href="#contact" class="btn-main">Start a Project</a>
+        <a href="#services" class="btn-sec">See What We Do</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll ticker -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span class="ticker-item">Web Design <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Social Media Management <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Landing Pages <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Ad Campaigns <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Branding & Identity <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Digital Strategy <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Web Design <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Social Media Management <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Landing Pages <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Ad Campaigns <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Branding & Identity <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Digital Strategy <span class="ticker-dot"></span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div>
+      <span class="about-label">Who We Are</span>
+      <h2>A focused agency for businesses that are serious about <em>growing online.</em></h2>
+    </div>
+    <div class="about-right-content">
+      <span class="origin-badge">📍 Founded in Manila · Operating from Singapore</span>
+      <p>
+        Hurtle Interactives was started in 2024 by Rafael Nicko and Samir Khalil — founded over shawarma in Manila with one clear mission: make it genuinely easy for businesses to establish and grow their digital presence.
+      </p>
+      <p>
+        We work with businesses that are serious about getting online and growing. We're not a bloated agency — we're lean, fast, and we care about your results as much as you do. Every project we take on gets our full attention.
+      </p>
+      <div class="founder-strip">
+        <div class="founder-block">
+          <div class="f-av">RN</div>
+          <div>
+            <div class="f-name">Rafael Nicko</div>
+            <div class="f-role">Co-Founder</div>
+          </div>
+        </div>
+        <div class="f-sep"></div>
+        <div class="founder-block">
+          <div class="f-av">SK</div>
+          <div>
+            <div class="f-name">Samir Khalil</div>
+            <div class="f-role">Co-Founder</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-wrap">
+    <div class="services-head">
+      <div>
+        <span class="about-label">What We Do</span>
+        <h2>Four ways we grow your business online</h2>
+      </div>
+      <p>Every service we offer is built around one goal: more customers finding you, trusting you, and choosing you.</p>
+    </div>
+    <div class="service-cards">
+
+      <div class="s-card">
+        <span class="s-num">01 — Web Design</span>
+        <h3>A website that actually works for your business</h3>
+        <p>Not just a good-looking site — a site that loads fast, works on mobile, and turns visitors into leads and customers.</p>
+        <div class="s-includes">
+          <div class="s-check">Custom design built around your brand</div>
+          <div class="s-check">Mobile-first & fast-loading</div>
+          <div class="s-check">Clear call-to-actions throughout</div>
+          <div class="s-check">Contact forms & booking ready</div>
+        </div>
+      </div>
+
+      <div class="s-card">
+        <span class="s-num">02 — Social Media</span>
+        <h3>Stay visible without doing it yourself</h3>
+        <p>Consistent posting, on-brand content, and real engagement — so your audience grows while you focus on running the business.</p>
+        <div class="s-includes">
+          <div class="s-check">Content strategy & calendar</div>
+          <div class="s-check">Post creation & scheduling</div>
+          <div class="s-check">Caption writing & hashtags</div>
+          <div class="s-check">Community engagement</div>
+        </div>
+      </div>
+
+      <div class="s-card">
+        <span class="s-num">03 — Landing Pages</span>
+        <h3>One page with one job: convert</h3>
+        <p>When you have an offer to push, a product to launch, or leads to capture — a focused landing page outperforms your homepage every time.</p>
+        <div class="s-includes">
+          <div class="s-check">Conversion-focused copywriting</div>
+          <div class="s-check">Lead capture & form integration</div>
+          <div class="s-check">A/B test-ready structure</div>
+          <div class="s-check">Fast turnaround</div>
+        </div>
+      </div>
+
+      <div class="s-card">
+        <span class="s-num">04 — Ad Campaigns</span>
+        <h3>Reach your customers where they already are</h3>
+        <p>Meta and social ad campaigns that target the right audience, at the right time, with the right message — and don't burn your budget.</p>
+        <div class="s-includes">
+          <div class="s-check">Audience research & targeting</div>
+          <div class="s-check">Ad creative & copywriting</div>
+          <div class="s-check">Campaign setup & monitoring</div>
+          <div class="s-check">Performance reporting</div>
+        </div>
+      </div>
+
+    </div>
+    <div style="text-align:center; margin-top:2.5rem;">
+      <a href="#contact" class="btn-sec" style="display:inline-block; border-color:rgba(255,255,255,0.15); color:rgba(255,255,255,0.6); padding:0.8rem 2rem; border-radius:6px; text-decoration:none; font-size:0.88rem; transition:all 0.2s;">
+        Not sure which service fits? Let's talk →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="portfolio-wrap">
+    <div class="portfolio-head">
+      <div>
+        <span class="about-label">Our Work</span>
+        <h2>Built for real businesses</h2>
+      </div>
+      <p>Two projects in — and growing. Every client gets our full attention.</p>
+    </div>
+    <div class="p-grid">
+      <div class="p-card">
+        <div class="p-img-wrap">
+          <img src="https://hurtleinteractives.netlify.app/assets/img/portfolio/vb.png"
+               alt="Pinas Wellness"
+               onerror="this.style.display='none'">
+        </div>
+        <div class="p-info">
+          <span class="p-category">WordPress · Web Design · Frankfurt, Germany</span>
+          <h3>Pinas Wellness Massage & Spa</h3>
+          <p>A serene, beach-themed website for a Filipino spa in Frankfurt. Built with easy online booking, multilingual support, and a design that puts clients at ease before they even arrive.</p>
+        </div>
+      </div>
+      <div class="p-card">
+        <div class="p-img-wrap">
+          <img src="https://hurtleinteractives.netlify.app/assets/img/portfolio/structureefficiency-sqr.png"
+               alt="Structure Efficiency"
+               onerror="this.style.display='none'">
+        </div>
+        <div class="p-info">
+          <span class="p-category">Web Design · Branding · Manila, Philippines</span>
+          <h3>Structure Efficiency</h3>
+          <p>A clean, structured website for an IT & business consulting firm. Designed to reflect precision and clarity — just like their work. Consistent branding throughout.</p>
+        </div>
+      </div>
+      <div class="p-soon">
+        <strong>More coming soon</strong>
+        New projects in progress — check back shortly.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-wrap">
+    <div class="why-item">
+      <span class="why-num">2</span>
+      <div class="why-label">Countries we operate from</div>
+    </div>
+    <div class="why-sep"></div>
+    <div class="why-item">
+      <span class="why-num">4</span>
+      <div class="why-label">Core digital services</div>
+    </div>
+    <div class="why-sep"></div>
+    <div class="why-item">
+      <span class="why-num">100%</span>
+      <div class="why-label">Focus on your results</div>
+    </div>
+    <div class="why-sep"></div>
+    <div class="why-item">
+      <span class="why-num">&lt;24h</span>
+      <div class="why-label">Response time guaranteed</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <span class="about-label">Get In Touch</span>
+      <h2>Ready to get your business online?</h2>
+      <p>Tell us about your business and what you need. We'll get back to you within 24 hours with a clear plan and no-pressure advice.</p>
+      <div class="c-list">
+        <div class="c-row">
+          <div class="c-ico">✉️</div>
+          <div>
+            <div class="c-text-label">Email</div>
+            <div class="c-text-val"><a href="mailto:hurtleinteractives@gmail.com">hurtleinteractives@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-ico">📞</div>
+          <div>
+            <div class="c-text-label">Phone / WhatsApp</div>
+            <div class="c-text-val"><a href="https://wa.me/6583225573" target="_blank">+65 8322 5573</a></div>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-ico">📍</div>
+          <div>
+            <div class="c-text-label">Based In</div>
+            <div class="c-text-val">Singapore · Manila, Philippines</div>
+          </div>
+        </div>
+        <div class="c-row">
+          <div class="c-ico">👥</div>
+          <div>
+            <div class="c-text-label">Facebook</div>
+            <div class="c-text-val"><a href="https://www.facebook.com/profile.php?id=61560808864296" target="_blank">Hurtle Interactives ↗</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="contact-form">
+        <div class="cf-title">Send a Message</div>
+        <form id="contact-form" action="https://formspree.io/f/maqgwwqe" method="POST">
+        <div class="f-row">
+          <div class="f-grp">
+            <label class="f-label" for="fname">First Name</label>
+            <input class="f-input" type="text" id="fname" name="first_name" placeholder="Juan" required>
+          </div>
+          <div class="f-grp">
+            <label class="f-label" for="lname">Last Name</label>
+            <input class="f-input" type="text" id="lname" name="last_name" placeholder="dela Cruz">
+          </div>
+        </div>
+        <div class="f-grp">
+          <label class="f-label" for="email">Email Address</label>
+          <input class="f-input" type="email" id="email" name="email" placeholder="you@yourbusiness.com" required>
+        </div>
+        <div class="f-grp">
+          <label class="f-label" for="service">What do you need?</label>
+          <select class="f-input f-select" id="service" name="service_interested_in">
+            <option value="">Select a service</option>
+            <option>Web Design & Development</option>
+            <option>Social Media Management</option>
+            <option>Landing Page Creation</option>
+            <option>Ad Campaign Management</option>
+            <option>Full Package</option>
+            <option>Not sure yet — let's talk</option>
+          </select>
+        </div>
+        <div class="f-grp">
+          <label class="f-label" for="message">Tell us about your business</label>
+          <textarea class="f-input f-ta" id="message" name="message" placeholder="What do you do, who are your customers, and what's your main goal right now?" required></textarea>
+        </div>
+        <input type="hidden" name="_subject" value="New inquiry from Hurtle website">
+        <button class="f-submit" type="submit">Send Message →</button>
+        <p id="form-status" style="color:rgba(255,255,255,0.2);font-size:0.73rem;text-align:center;margin-top:0.9rem;">We reply within 24 hours. No spam, no pressure.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#home" class="footer-logo-wrap">
+      <div class="footer-icon"></div>
+      <span class="footer-brand-name">HURTLE</span>
+    </a>
+    <span class="footer-copy">© 2025 Hurtle Interactives. All rights reserved.</span>
+    <ul class="footer-nav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+  const contactForm = document.getElementById('contact-form');
+  const formStatus = document.getElementById('form-status');
+
+  contactForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const btn = document.querySelector('.f-submit');
+    const originalBtnText = btn.textContent;
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const formData = new FormData(contactForm);
+
+    fetch(contactForm.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    })
+      .then((response) => {
+        if (response.ok) {
+          btn.textContent = 'Message Sent ✓';
+          btn.style.background = '#1a5c38';
+          formStatus.textContent = "Thanks — we've got your message and will reply within 24 hours.";
+          formStatus.style.color = '#4CAF82';
+          contactForm.reset();
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(() => {
+        btn.textContent = originalBtnText;
+        btn.disabled = false;
+        formStatus.textContent = "Something went wrong — please email us directly at hurtleinteractives@gmail.com.";
+        formStatus.style.color = '#E0453A';
+      });
+  });
+</script>
+</body>
+</html>
