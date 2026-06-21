@@ -92,22 +92,45 @@ nav {
 
 .nav-center a:hover { color: var(--white); }
 
-.nav-btn {
-  background: var(--green);
-  color: var(--white);
-  border: none;
-  padding: 0.5rem 1.25rem;
-  border-radius: 6px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.82rem;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  transition: background 0.2s;
-  letter-spacing: 0.02em;
+.nav-btn-turtle {
+  position: absolute;
+  top: 50%;
+  left: -36px;
+  width: 28px;
+  height: 28px;
+  transform: translateY(-50%);
+  background: url('https://hurtleinteractives.netlify.app/assets/img/logo.png') center/contain no-repeat;
+  filter: brightness(10);
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
 }
 
-.nav-btn:hover { background: var(--green2); }
+.nav-btn:hover .nav-btn-turtle {
+  animation: turtle-run 1.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@keyframes turtle-run {
+  0% {
+    left: -36px;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% + 10px);
+    opacity: 0;
+  }
+}
+.nav-btn-text {
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.3s ease 0.1s;
+}
 
 .hamburger {
   display: none;
