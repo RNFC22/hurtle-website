@@ -92,6 +92,37 @@ nav {
 
 .nav-center a:hover { color: var(--white); }
 
+.nav-btn {
+  background: var(--green);
+  color: var(--white);
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-btn:hover { background: var(--green2); }
+
+.nav-btn-text {
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.3s ease 0.1s;
+}
+
+.nav-btn:hover .nav-btn-text {
+  opacity: 0;
+}
+
 .nav-btn-turtle {
   position: absolute;
   top: 50%;
@@ -125,11 +156,6 @@ nav {
     left: calc(100% + 10px);
     opacity: 0;
   }
-}
-.nav-btn-text {
-  position: relative;
-  z-index: 1;
-  transition: opacity 0.3s ease 0.1s;
 }
 
 .hamburger {
@@ -1011,7 +1037,10 @@ footer {
     <li><a href="#portfolio">Work</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-btn">Get Started</a>
+  <a href="#contact" class="nav-btn">
+    <span class="nav-btn-turtle"></span>
+    <span class="nav-btn-text">Get Started</span>
+  </a>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
@@ -1088,7 +1117,7 @@ footer {
             <div class="f-role">Co-Founder</div>
           </div>
         </div>
-        -->
+      -->
       </div>
     </div>
   </div>
@@ -1168,43 +1197,44 @@ footer {
   <div class="portfolio-wrap">
     <div class="portfolio-head">
       <div>
-        <span class="about-label">Our Latest Projects</span>
+        <span class="about-label">Our Work</span>
         <h2>Built for real businesses</h2>
       </div>
       <p>Two projects in — and growing. Every client gets our full attention.</p>
     </div>
     <div class="p-grid">
-  <div class="p-card">
-    <div class="p-img-wrap">
-      <img src="https://hurtleinteractives.netlify.app/assets/img/portfolio/vb.png"
-           alt="Pinas Wellness"
-           onerror="this.style.display='none'">
-    </div>
-    <div class="p-info">
-      <span class="p-category">WordPress · Web Design · Frankfurt, Germany</span>
-      <h3>Pinas Wellness Massage & Spa</h3>
-      <p>A serene, beach-themed website for a Filipino spa in Frankfurt. Built with easy online booking, multilingual support, and a design that puts clients at ease before they even arrive.</p>
-      <a class="p-visit-btn" href="https://dev-pinaswellnessmassage.pantheonsite.io/" target="_blank" rel="noopener">Visit Site ↗</a>
+      <div class="p-card">
+        <div class="p-img-wrap">
+          <img src="https://hurtleinteractives.netlify.app/assets/img/portfolio/vb.png"
+               alt="Pinas Wellness"
+               onerror="this.style.display='none'">
+        </div>
+        <div class="p-info">
+          <span class="p-category">WordPress · Web Design · Frankfurt, Germany</span>
+          <h3>Pinas Wellness Massage & Spa</h3>
+          <p>A serene, beach-themed website for a Filipino spa in Frankfurt. Built with easy online booking, multilingual support, and a design that puts clients at ease before they even arrive.</p>
+          <a class="p-visit-btn" href="https://dev-pinaswellnessmassage.pantheonsite.io/" target="_blank" rel="noopener">Visit Site ↗</a>
+        </div>
+      </div>
+      <div class="p-card">
+        <div class="p-img-wrap">
+          <img src="https://hurtleinteractives.netlify.app/assets/img/portfolio/structureefficiency-sqr.png"
+               alt="Structure Efficiency"
+               onerror="this.style.display='none'">
+        </div>
+        <div class="p-info">
+          <span class="p-category">Web Design · Branding · Manila, Philippines</span>
+          <h3>Structure Efficiency</h3>
+          <p>A clean, structured website for an IT & business consulting firm. Designed to reflect precision and clarity — just like their work. Consistent branding throughout.</p>
+          <a class="p-visit-btn" href="https://www.structuredefficiency.com/" target="_blank" rel="noopener">Visit Site ↗</a>
+        </div>
+      </div>
+      <div class="p-soon">
+        <strong>More coming soon</strong>
+        New projects in progress — check back shortly.
+      </div>
     </div>
   </div>
-  <div class="p-card">
-    <div class="p-img-wrap">
-      <img src="https://hurtleinteractives.netlify.app/assets/img/portfolio/structureefficiency-sqr.png"
-           alt="Structure Efficiency"
-           onerror="this.style.display='none'">
-    </div>
-    <div class="p-info">
-      <span class="p-category">Web Design · Branding · Manila, Philippines</span>
-      <h3>Structure Efficiency</h3>
-      <p>A clean, structured website for an IT & business consulting firm. Designed to reflect precision and clarity — just like their work. Consistent branding throughout.</p>
-      <a class="p-visit-btn" href="https://www.structuredefficiency.com/" target="_blank" rel="noopener">Visit Site ↗</a>
-    </div>
-  </div>
-  <div class="p-soon">
-    <strong>More coming soon</strong>
-    New projects in progress — check back shortly.
-  </div>
-</div>
 </section>
 
 <!-- WHY US -->
