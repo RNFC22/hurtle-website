@@ -583,6 +583,28 @@ nav {
   transform: translateY(-3px);
 }
 
+.p-visit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--green2);
+  text-decoration: none;
+  margin-top: 1.25rem;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--green-bd);
+  border-radius: 6px;
+  background: var(--green-lt);
+  transition: background 0.2s, color 0.2s, gap 0.2s;
+}
+
+.p-visit-btn:hover {
+  background: var(--green);
+  color: var(--white);
+  gap: 0.6rem;
+}
+
 .p-img-wrap {
   height: 200px;
   overflow: hidden;
@@ -1021,11 +1043,12 @@ footer {
     <div class="about-right-content">
       <span class="origin-badge">📍 Founded in Manila · Operating from Singapore</span>
       <p>
-        Hurtle Interactives was started in 2024 by Rafael Nicko and Samir Khalil — founded over shawarma in Manila with one clear mission: make it genuinely easy for businesses to establish and grow their digital presence.
+        Hurtle Interactives was started in 2024 — founded over shawarma in Manila with one clear mission: make it genuinely easy for businesses to establish and grow their digital presence.
       </p>
       <p>
         We work with businesses that are serious about getting online and growing. We're not a bloated agency — we're lean, fast, and we care about your results as much as you do. Every project we take on gets our full attention.
       </p>
+      <!--
       <div class="founder-strip">
         <div class="founder-block">
           <div class="f-av">RN</div>
@@ -1042,6 +1065,7 @@ footer {
             <div class="f-role">Co-Founder</div>
           </div>
         </div>
+        -->
       </div>
     </div>
   </div>
@@ -1127,36 +1151,37 @@ footer {
       <p>Two projects in — and growing. Every client gets our full attention.</p>
     </div>
     <div class="p-grid">
-      <div class="p-card">
-        <div class="p-img-wrap">
-          <img src="https://hurtleinteractives.netlify.app/assets/img/portfolio/vb.png"
-               alt="Pinas Wellness"
-               onerror="this.style.display='none'">
-        </div>
-        <div class="p-info">
-          <span class="p-category">WordPress · Web Design · Frankfurt, Germany</span>
-          <h3>Pinas Wellness Massage & Spa</h3>
-          <p>A serene, beach-themed website for a Filipino spa in Frankfurt. Built with easy online booking, multilingual support, and a design that puts clients at ease before they even arrive.</p>
-        </div>
-      </div>
-      <div class="p-card">
-        <div class="p-img-wrap">
-          <img src="https://hurtleinteractives.netlify.app/assets/img/portfolio/structureefficiency-sqr.png"
-               alt="Structure Efficiency"
-               onerror="this.style.display='none'">
-        </div>
-        <div class="p-info">
-          <span class="p-category">Web Design · Branding · Manila, Philippines</span>
-          <h3>Structure Efficiency</h3>
-          <p>A clean, structured website for an IT & business consulting firm. Designed to reflect precision and clarity — just like their work. Consistent branding throughout.</p>
-        </div>
-      </div>
-      <div class="p-soon">
-        <strong>More coming soon</strong>
-        New projects in progress — check back shortly.
-      </div>
+  <div class="p-card">
+    <div class="p-img-wrap">
+      <img src="https://hurtleinteractives.netlify.app/assets/img/portfolio/vb.png"
+           alt="Pinas Wellness"
+           onerror="this.style.display='none'">
+    </div>
+    <div class="p-info">
+      <span class="p-category">WordPress · Web Design · Frankfurt, Germany</span>
+      <h3>Pinas Wellness Massage & Spa</h3>
+      <p>A serene, beach-themed website for a Filipino spa in Frankfurt. Built with easy online booking, multilingual support, and a design that puts clients at ease before they even arrive.</p>
+      <a class="p-visit-btn" href="https://dev-pinaswellnessmassage.pantheonsite.io/" target="_blank" rel="noopener">Visit Site ↗</a>
     </div>
   </div>
+  <div class="p-card">
+    <div class="p-img-wrap">
+      <img src="https://hurtleinteractives.netlify.app/assets/img/portfolio/structureefficiency-sqr.png"
+           alt="Structure Efficiency"
+           onerror="this.style.display='none'">
+    </div>
+    <div class="p-info">
+      <span class="p-category">Web Design · Branding · Manila, Philippines</span>
+      <h3>Structure Efficiency</h3>
+      <p>A clean, structured website for an IT & business consulting firm. Designed to reflect precision and clarity — just like their work. Consistent branding throughout.</p>
+      <a class="p-visit-btn" href="https://www.structuredefficiency.com/" target="_blank" rel="noopener">Visit Site ↗</a>
+    </div>
+  </div>
+  <div class="p-soon">
+    <strong>More coming soon</strong>
+    New projects in progress — check back shortly.
+  </div>
+</div>
 </section>
 
 <!-- WHY US -->
